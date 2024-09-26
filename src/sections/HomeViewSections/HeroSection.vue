@@ -13,11 +13,11 @@ import BaseButton from "@/components/BaseButton.vue";
         <img src="/images/svg/blocks.svg" alt="" class="w-[330px] md:w-[390px] xl:w-[550px]" />
       </div>
       <h1
-        class="font-extrabold leading-[45px] md:font-bold text-[35px] sm:text-[35px] md:text-[50px] md:leading-[60px] w-[80%] xl:w-full"
+        class="font-extrabold leading-[40px] md:font-bold text-[32px] sm:text-[35px] md:text-[50px] md:leading-[60px] w-[80%] xl:w-full"
       >
         Empower Your Trading with Cutting-Edge Algorithms
       </h1>
-      <p class="opacity-50 text-[12px] md:text-[16px] w-[70%]">
+      <p class="opacity-50 text-[14px] md:text-[16px] w-[70%] relative z-10">
         Unlock the power of automation and smart trading strategies with our
         advanced algorithmic trading software. Make data-driven decisions and
         gain an edge in the market.
