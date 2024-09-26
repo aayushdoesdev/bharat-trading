@@ -2,9 +2,9 @@
   <div>
     <!-- Loader -->
     <div v-if="isLoading" class="loader-wrap">
-      <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMinYMin slice">
-        <path id="leftCurtain" :d="leftFlat" fill="white"></path>
-        <path id="rightCurtain" :d="rightFlat" fill="white"></path>
+      <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+        <path id="leftCurtain" :d="leftFlat" fill="white" class="left-curtain"></path>
+        <path id="rightCurtain" :d="rightFlat" fill="white" class="right-curtain"></path>
       </svg>
       <div class="loader-wrap-heading z-30">
         <img src="/images/svg/logo.svg" alt="Logo" class="w-[150px] md:w-[200px] z-40" />
@@ -25,82 +25,38 @@
 
 <script setup>
 import { onMounted, ref } from 'vue';
-import gsap from 'gsap';
 import Navbar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
 import lottieanimation from './components/lottieanimation.vue';
 
-onMounted(() => {
-  window.scrollTo(0, 0);
-});
-
 const isLoading = ref(true);
 
-// Flat curtain paths for the SVG
-const leftFlat = "M0,1005 L500,1005 L500,0 L0,0 Z";
-const rightFlat = "M1000,1005 L500,1005 L500,0 L1000,0 Z";
-
-// Detect mobile screen size
-const isMobile = window.matchMedia("(max-width: 767px)").matches;
+// Define the curtain paths
+const leftFlat = "M0,1005 L500,1005 L500,0 L0,0 Z"; // Left flat shape
+const rightFlat = "M1000,1005 L500,1005 L500,0 L1000,0 Z"; // Right flat shape
 
 onMounted(() => {
-  // Disable scrolling while loading
+  window.scrollTo(0, 0);
+  // Disable scrolling while loading (including y-axis)
   document.body.style.overflow = 'hidden';
 
-  const leftCurtain = document.getElementById("leftCurtain");
-  const rightCurtain = document.getElementById("rightCurtain");
-  const tl = gsap.timeline();
+  // Simulate animation delay for curtains and loader
+  setTimeout(() => {
+    // Remove the loader
+    isLoading.value = false;
 
-  // Add a delay before starting the curtain animation
-  tl.to({}, { duration: 1 }); // Delay of 1 second
-
-  // Fade out logo and Lottie animation
-  tl.to(".loader-wrap-heading img, .loader-wrap-heading div", {
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out",
-  });
-
-  // Adjust animations based on device type (mobile vs desktop)
-  if (isMobile) {
-    // Mobile: slower, smoother animations
-    tl.to(leftCurtain, {
-      duration: 1.5,
-      x: '-150%', // Move further for mobile screens
-      ease: "power1.easeIn",
-    }).to(rightCurtain, {
-      duration: 1.5,
-      x: '150%',
-      ease: "power1.easeIn",
-    }, "<"); // Start both animations at the same time
-  } else {
-    // Desktop: default animations
-    tl.to(leftCurtain, {
-      duration: 1,
-      x: '-100%',
-      ease: "power2.easeIn",
-    }).to(rightCurtain, {
-      duration: 1,
-      x: '100%',
-      ease: "power2.easeIn",
-    }, "<"); // Start both animations at the same time
-  }
-
-  // Move the loader off-screen and reset scroll
-  tl.to(".loader-wrap", {
-    y: -1500,
-    onComplete: () => {
-      isLoading.value = false; // Update loading state
-      document.body.style.overflow = ''; // Re-enable scrolling
-    }
-  });
+    // Delay enabling scrolling until after the full animation finishes
+    setTimeout(() => {
+      document.body.style.overflow = ''; // Re-enable scrolling (both x and y)
+    }, 100); // Adjust timing to match the end of the loader animation
+  }, 3500); // Total loading and animation time (4s)
 });
 </script>
 
 <style scoped>
 body {
   background-color: #e0e0e0;
-  overflow: hidden; /* Prevent scrolling while loading */
+  overflow: hidden; /* Prevent scrolling by default */
 }
 
 .loader-wrap {
@@ -113,7 +69,6 @@ body {
   align-items: center;
   justify-content: center;
   background: transparent;
-  transition: opacity 0.5s ease; /* Smooth transition */
 }
 
 .loader-wrap svg {
@@ -125,31 +80,61 @@ body {
 
 .loader-wrap .loader-wrap-heading {
   z-index: 20;
-  text-align: center;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.loader-wrap-heading img {
-  width: 150px;
+/* Left and Right Curtain CSS Animations */
+.left-curtain {
+  animation: leftCurtainAnimation 2s ease-in-out forwards 2s; /* Starts after 3 seconds */
 }
 
-.loader-wrap-heading div {
-  width: 150px;
+.right-curtain {
+  animation: rightCurtainAnimation 2s ease-in-out forwards 2s; /* Starts after 3 seconds */
 }
 
-@media (min-width: 768px) {
-  .loader-wrap-heading img {
-    width: 200px;
+/* Keyframes for Left Curtain */
+@keyframes leftCurtainAnimation {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
-  .loader-wrap-heading div {
-    width: 200px;
+/* Keyframes for Right Curtain */
+@keyframes rightCurtainAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Fade out logo and animation */
+.loader-wrap-heading {
+  animation: fadeOutLogo 0.5s ease-in-out forwards 1s; /* Starts after 2 seconds */
+}
+
+/* Keyframes for fading out the loader heading */
+@keyframes fadeOutLogo {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
 @media (max-width: 767px) {
-  /* Adjustments for mobile */
   .loader-wrap svg {
-    width: 200vw; /* Increase width for mobile */
+    width: 200vw;
   }
 }
 </style>
