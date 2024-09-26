@@ -8,8 +8,8 @@
         <path id="rightCurtain" :d="rightFlat" fill="white"></path>
       </svg>
       <div class="loader-wrap-heading z-30">
-        <img src="/images/svg/logo.svg" alt="Logo" class="w-[200px] z-40" />
-        <div class="w-[200px]">
+        <img src="/images/svg/logo.svg" alt="Logo" class="w-[150px] md:w-[200px] z-40" />
+        <div class="w-[150px] md:w-[200px]">
           <lottieanimation animationPath="/animations/loading-bar.json" />
         </div>
       </div>
@@ -49,15 +49,15 @@ onMounted(() => {
   const tl = gsap.timeline();
 
   // Animate loading text
-  tl.from(".loader-wrap-heading h1", {
-    y: 200,
-    skewY: 10,
-    duration: 1,
-  }).to(".loader-wrap-heading h1", {
-    y: -200,
-    skewY: 10,
-    duration: 1,
-  });
+  // tl.from(".loader-wrap-heading h1", {
+  //   y: 200,
+  //   skewY: 10,
+  //   duration: 1,
+  // }).to(".loader-wrap-heading h1", {
+  //   y: -200,
+  //   skewY: 10,
+  //   duration: 1,
+  // });
 
   // Add a delay of 2 seconds before starting the curtain animation
   tl.to({}, { duration: 1 }); // Empty tween for delay
@@ -71,11 +71,11 @@ onMounted(() => {
 
   // Animate both curtains simultaneously after the fade-out
   tl.to(leftCurtain, {
-    duration: 0.6,
+    duration: 1,
     x: '-100%', // Move left
     ease: "power2.easeIn",
   }).to(rightCurtain, {
-    duration: 0.6,
+    duration: 1,
     x: '100%', // Move right
     ease: "power2.easeIn",
   }, "<"); // Start both animations at the same time

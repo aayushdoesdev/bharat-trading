@@ -31,7 +31,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="font-manrope px-4 sm:px-6 py-6 md:py-10 3xl:max-w-[85%] mx-auto fade-in-slide">
+  <section class="font-manrope px-4 sm:px-6 py-6 md:py-10 3xl:max-w-[85%] mx-auto fade-in-slide overflow-x-hidden">
     <div
       class="border border-black border-opacity-20 p-4 md:p-10 rounded-lg flex flex-col xl:flex-row items-start gap-8"
     >

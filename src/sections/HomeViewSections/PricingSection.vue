@@ -31,7 +31,7 @@ onMounted(() => {
 
 <template>
   <section
-    class="font-manrope px-4 sm:px-6 py-6 md:py-10 3xl:max-w-[85%] mx-auto fade-in-slide"
+    class="font-manrope px-4 sm:px-6 py-6 md:py-10 3xl:max-w-[85%] mx-auto fade-in-slide overflow-x-hidden"
   >
     <div class="border border-black border-opacity-20 rounded-lg p-4 md:p-6">
       <h1 class="font-bold text-[30px] md:text-[40px] xl:text-[45px]">

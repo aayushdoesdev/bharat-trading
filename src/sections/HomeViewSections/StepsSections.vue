@@ -17,7 +17,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <section class=" px-4 sm:px-6 py-6 md:py-10 3xl:max-w-[85%] mx-auto fade-in-slide">
+    <section class=" px-4 sm:px-6 py-6 md:py-10 3xl:max-w-[85%] mx-auto fade-in-slide overflow-x-hidden">
         <div class="bg-custom-blue p-10 md:p-20 rounded-lg text-white flex flex-col xl:flex-row items-center justify-between gap-8">
             <div class="flex flex-col items-center text-center gap-1">
                 <img src="/images/svg/step1.svg" alt="">

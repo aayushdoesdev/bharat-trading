@@ -17,7 +17,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <section class="font-manrope px-4 sm:px-6 py-10 3xl:max-w-[85%] mx-auto fade-in-slide">
+    <section class="font-manrope px-4 sm:px-6 py-10 3xl:max-w-[85%] mx-auto fade-in-slide overflow-x-hidden">
         <div class="border border-black border-opacity-25 rounded-lg flex flex-col-reverse xl:flex-row items-center justify-between gap-8 p-6 md:p-10">
             <div class="w-full xl:w-[50%]">
                 <img src="/images/testimonial.webp" alt="" class="">

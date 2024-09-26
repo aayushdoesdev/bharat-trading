@@ -4,7 +4,7 @@ import BaseButton from "@/components/BaseButton.vue";
 
 <template>
   <section
-    class="font-manrope px-4 sm:px-6 md:pt-8 flex flex-col xl:flex-row items-center justify-between 3xl:max-w-[85%] mx-auto"
+    class="font-manrope px-4 sm:px-6 md:pt-8 flex flex-col xl:flex-row items-center justify-between 3xl:max-w-[85%] mx-auto overflow-hidden"
   >
     <div
       class="w-full lg:max-w-[850px] mr-auto xl:w-[50%] space-y-4 md:space-y-6 relative md:py-12 xl:py-28 px-1 sm:px-6"

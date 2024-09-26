@@ -31,7 +31,7 @@ const experiance = [
 </script>
 
 <template>
-    <section class="font-manrope px-4 sm:px-6 py-6 md:py-10 3xl:max-w-[85%] mx-auto">
+    <section class="font-manrope px-4 sm:px-6 py-6 md:py-10 3xl:max-w-[85%] mx-auto overflow-x-hidden">
         <div class="flex flex-col md:flex-row items-center justify-between md:px-8 space-y-5 md:space-y-0">
             <p class="font-bold text-[19px]">Trusted by the best in the world</p>
             <img src="/images/svg/brokerLogo.svg" alt="" class="w-full md:w-[45%]">
