@@ -8,9 +8,9 @@
       </svg>
       <div class="loader-wrap-heading z-30">
         <img src="/images/svg/logo.svg" alt="Logo" class="w-[150px] md:w-[200px] z-40" />
-        <div class="w-[150px] md:w-[200px]">
+        <!-- <div class="w-[150px] md:w-[200px]">
           <lottieanimation animationPath="/animations/loading-bar.json" />
-        </div>
+        </div> -->
       </div>
     </div>
 
