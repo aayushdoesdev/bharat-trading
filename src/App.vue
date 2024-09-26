@@ -6,7 +6,7 @@
         <path id="leftCurtain" :d="leftFlat" fill="white" class="left-curtain"></path>
         <path id="rightCurtain" :d="rightFlat" fill="white" class="right-curtain"></path>
       </svg>
-      <div class="loader-wrap-heading z-30">
+      <div class="loader-wrap-heading flex items-center justify-center z-30">
         <img src="/images/svg/logo.svg" alt="Logo" class="w-[150px] md:w-[200px] z-40" />
         <!-- <div class="w-[150px] md:w-[200px]">
           <lottieanimation animationPath="/animations/loading-bar.json" />
